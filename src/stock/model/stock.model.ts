@@ -17,7 +17,7 @@ export class StockModel extends Model<StockModel> {
 
   @ForeignKey(() => ProductModel)
   @Column
-  productsId: number;
+  serialProduct: string;
 
   @Column
   qtd: number;
