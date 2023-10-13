@@ -60,7 +60,6 @@ export class ProductsService {
     try {
       return this.productModel.findOne(options);
     } catch (error) {
-      console.log(error);
       throw error;
     }
   }
