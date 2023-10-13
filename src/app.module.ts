@@ -3,12 +3,14 @@ import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { SequelizeDatabase } from './database/sequelize.options';
 import { ProductsModule } from './products/products.module';
+import { StockModule } from './stock/stock.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     SequelizeModule.forRoot({ dialect: 'postgres', ...SequelizeDatabase }),
     ProductsModule,
+    StockModule,
   ],
   controllers: [],
   providers: [],
