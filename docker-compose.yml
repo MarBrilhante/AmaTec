@@ -1,0 +1,12 @@
+version: '3'
+services:
+  database:
+    container_name: database
+    image: postgres:15.4
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: amatec
+      POSTGRES_PASSWORD: AmaTec@2023
+      POSTGRES_DATABASE: amatec
