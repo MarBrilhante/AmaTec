@@ -10,3 +10,31 @@ services:
       POSTGRES_USER: amatec
       POSTGRES_PASSWORD: AmaTec@2023
       POSTGRES_DATABASE: amatec
+    networks:
+      - amatec
+  backend:
+    container_name: backend
+    image: backend
+    depends_on:
+      - database
+    restart: unless-stopped
+    build:
+      context: ./
+    ports:
+      - '3000:3000'
+    environment:
+    - DB_HOST=database
+    - DB_USERNAME=amatec
+    - DB_DATABASE=amatec
+    - DB_PORT=5432
+    - DB_PASSWORD=AmaTec@2023
+    - API_VERSION=1.0
+    - API_PORT=3000
+    - API_DESCRIPTION=Hackathom
+    - API_TITLE=Amatec
+    - API_SWAGGER=/swagger
+    networks:
+      - amatec
+
+networks:
+  amatec:

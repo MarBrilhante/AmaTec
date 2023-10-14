@@ -40,14 +40,14 @@ export class ProductsService {
     }
   }
 
-  async findOne(id: number) {
+  async findOne(serial: string) {
     try {
       const result = await this.findOptios({
-        where: { id },
+        where: { serial },
       });
       if (!result)
         throw new HttpException(
-          `Produto de id ${id} não encontrado`,
+          `Produto de serial ${serial} não encontrado`,
           HttpStatus.NOT_FOUND,
         );
       return result;
@@ -64,27 +64,27 @@ export class ProductsService {
     }
   }
 
-  async update(id: number, updateProductDto: UpdateProductDto) {
+  async update(serial: string, updateProductDto: UpdateProductDto) {
     try {
-      await this.findOne(id);
+      await this.findOne(serial);
       const hasExist = await this.findOptios({
         where: { name: { [Op.iLike]: updateProductDto.name } },
       });
-      if (hasExist && hasExist.id != id)
+      if (hasExist && hasExist.serial != serial)
         throw new HttpException(
           `Produto ${updateProductDto.name} já cadastrado`,
           HttpStatus.BAD_REQUEST,
         );
-      return this.productModel.update(updateProductDto, { where: { id } });
+      return this.productModel.update(updateProductDto, { where: { serial } });
     } catch (error) {
       throw error;
     }
   }
 
-  async remove(id: number) {
+  async remove(serial: string) {
     try {
-      await this.findOne(id);
-      return this.productModel.destroy({ where: { id } });
+      await this.findOne(serial);
+      return this.productModel.destroy({ where: { serial } });
     } catch (error) {
       throw error;
     }
