@@ -32,9 +32,12 @@ export class StockController {
     return this.stockService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: number, @Body() updateStockDto: UpdateStockDto) {
-    return this.stockService.update(+id, updateStockDto);
+  @Patch(':serial')
+  update(
+    @Param('serial') serial: string,
+    @Body() updateStockDto: UpdateStockDto,
+  ) {
+    return this.stockService.update(serial, updateStockDto);
   }
 
   @Delete(':id')
