@@ -1,4 +1,4 @@
 export class CreateStockDto {
-  productsId: number;
+  serialProduct: string;
   qtd: number;
 }

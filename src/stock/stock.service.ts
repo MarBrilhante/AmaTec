@@ -50,7 +50,7 @@ export class StockService {
     }
   }
 
-  findOptios(options: FindOptions) {
+  findOptios(options: FindOptions): Promise<StockModel> {
     try {
       return this.stockModel.findOne(options);
     } catch (error) {
@@ -58,10 +58,11 @@ export class StockService {
     }
   }
 
-  async update(id: number, updateStockDto: UpdateStockDto) {
+  async update(serial: string, updateStockDto: UpdateStockDto) {
     try {
-      await this.findOne(id);
-      return this.stockModel.update(updateStockDto, { where: { id } });
+      return this.stockModel.update(updateStockDto, {
+        where: { serialProduct: serial },
+      });
     } catch (error) {
       throw error;
     }

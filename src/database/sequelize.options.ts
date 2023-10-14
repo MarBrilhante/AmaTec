@@ -5,5 +5,5 @@ export const SequelizeDatabase = {
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
   autoLoadModels: true,
-  synchronize: false,
+  synchronize: true,
 };

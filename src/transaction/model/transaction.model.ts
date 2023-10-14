@@ -2,18 +2,21 @@ import {
   BelongsTo,
   Column,
   ForeignKey,
-  Table,
   Model,
+  Table,
 } from 'sequelize-typescript';
 import { ProductModel } from 'src/products/model/product.model';
 
 @Table({
-  tableName: 'Stock',
+  tableName: 'Transaction',
   timestamps: false,
 })
-export class StockModel extends Model<StockModel> {
+export class TransactionModel extends Model<TransactionModel> {
   @Column({ primaryKey: true, autoIncrement: true })
   id: number;
+
+  @Column
+  type: string;
 
   @ForeignKey(() => ProductModel)
   @Column
