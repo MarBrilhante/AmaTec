@@ -11,6 +11,9 @@ export class ProductModel extends Model<ProductModel> {
   @Column({ type: DataType.STRING })
   name: string;
 
+  @Column({ type: DataType.STRING })
+  description: string;
+
   @Column({ type: DataType.FLOAT })
   price: number;
 }
