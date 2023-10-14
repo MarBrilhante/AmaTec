@@ -1,18 +1,38 @@
-# AmaTec
-
 Repositório destinado ao hackathon - Campus Party Manaus
 
-Projeto feito em Nestjs, um framework de NodeJs que usa Typescript como padrão.
+# AmaTec
 
-Está sendo usado commit-lint em conjunto com um package husky para auxilar e validar os commit's de acordo com o convencional commits usando esse comando:
+> Tech Stack
+
+- **Framework:** [NestJs](https://nestjs.com/)
+- **ORM:** [Sequelize](https://sequelize.org/)
+- **Database:** [Postgres](https://www.postgresql.org/)
+
+## Running Locally
+
+Follow these steps to get the project up and running on your local machine:
+
+1. Clone this repository to your local machine using the following command:
 
 ```bash
-pnpm cz
+git clone https://github.com/MarBrilhante/AmaTec.git
 ```
 
-O banco de dados está em PostgresSQL e está tudo dockerizado usando pnpm.
+3. Install dependencies using pnpm:
 
-Para rodar o projeto:
+```bash
+pnpm install
+```
+
+4. Start the development server:
+
+```bash
+pnpm run start
+```
+
+## Using Docker
+
+1. Build your container:
 
 ```bash
 docker-compose up
